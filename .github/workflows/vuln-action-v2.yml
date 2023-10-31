@@ -1,0 +1,12 @@
+name: Issues
+on:
+  issues:
+    types: [opened]
+jobs:
+  print_issue_title:
+    runs-on: ubuntu-latest
+    name: Print issue title
+    steps:
+    - env:
+        BODY: ${{github.event.issue.title}}
+    - run: echo "$env.BODY"
